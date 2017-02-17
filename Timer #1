@@ -12,7 +12,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.widget.EditText;
 import java.util.concurrent.TimeUnit;
 
 
@@ -24,6 +24,14 @@ public class MainActivity extends Activity {
     Button btnStart, btnStop;
     TextView textViewTime;
 
+    //get countdown interval from user
+    EditText myEdit = (EditText) findViewById(R.id.time);
+    //convert edit text to string
+    String numString = myEdit.getText().toString();
+    //convert string to integer
+    int myInt = Integer.parseInt(numString);
+    //convert integer to long number of milliseconds
+    long localStartTime = (Long.valueOf(myInt) * 1000);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +42,11 @@ public class MainActivity extends Activity {
         btnStop = (Button) findViewById(R.id.btnStop);
         textViewTime = (TextView) findViewById(R.id.textViewTime);
 
-        textViewTime.setText("00:03:00");
 
-        final CounterClass timer = new CounterClass(180000,1000);
+
+       textViewTime.setText("" + localStartTime + "Miutes");
+
+        final CounterClass timer = new CounterClass(localStartTime * 60000,1000);
         btnStart.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -84,4 +94,28 @@ public class MainActivity extends Activity {
             textViewTime.setText("Good Job Studying. Here's a Panda =D");
         }
     }
+
+    //User Input Classes
+
+   public class FrmActivity extends Activity {
+
+       Button mButton;
+       EditText mEdit;
+       TextView mText;
+
+       @Override
+       public void onCreate(Bundle savedInstanceState) {
+           super.onCreate(savedInstanceState);
+           setContentView(R.layout.activity_main);
+           mButton = (Button)findViewById(R.id.button1);
+
+           mButton.setOnClickListener(new View.OnClickListener() {
+               public void onClick(View view) {
+                   mEdit   = (EditText)findViewById(R.id.editText1);
+                   mText = (TextView)findViewById(R.id.textView1);
+                   mText.setText("Welcome "+mEdit.getText().toString()+"!");
+               }
+           });
+       }
+   }
 }
