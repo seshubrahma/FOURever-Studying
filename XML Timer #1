@@ -40,5 +40,63 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="17dp"
         android:textSize="25sp"
-        android:text="Hello World!" />
+        android:text="TIME" />
+
+    <!-- this is a comment -->
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="SET TIME (PLEASE)"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#A4C639" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="23dp"
+        android:text="How Many Minutes"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#0099FF" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toRightOf="@+id/textView2"
+        android:background="#CCCCCC"
+        android:ems="10"
+        android:inputType="textPersonName" >
+
+        <requestFocus />
+    </EditText>
+
+    <!-- THIS IS THE SUBMIT BUTTOM -->
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="20dp"
+        android:background="#0099FF"
+        android:text="Submit"
+        android:textColor="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/instruction"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:imeOptions="actionGo"
+        android:inputType="number" />
+
 </RelativeLayout>
